@@ -35,7 +35,7 @@ const Logo_from_figma = () => (
 const Logo = (props) => {
   return (
     <Link href="/">
-      <Box>
+      <Box cursor="pointer" >
       <Logo_from_figma {...props} />
       </Box>
     </Link>

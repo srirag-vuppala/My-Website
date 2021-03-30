@@ -43,6 +43,7 @@ const MenuLinks = (props) => {
     <Box
       display={{ base: props.isOpen ? "block" : "none", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
+      cursor="pointer"
     >
       <Stack
         spacing={8}

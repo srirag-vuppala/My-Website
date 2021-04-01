@@ -16,7 +16,8 @@ const CloserIcon = (props) =>(
 const MenuIcon = (props) => (
   // <Icon as={TiThMenu} color ="white"/>
   <Box {...props}>
-    <HamburgerIcon color="white" boxSize="2rem"/>
+    {/* <HamburgerIcon color="white" boxSize="1.5rem"/> */}
+    <HamburgerIcon color="white" boxSize={["20px", "22px"]}/>
   </Box>
 );
 
@@ -31,7 +32,8 @@ const MenuToggle = ({ toggle, isOpen }) => {
 const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
     <Link href={to}>
-      <Text display="block" {...rest} color="white">
+      <Text display="block" {...rest} color="white" _hover={{textShadow: '2px 1px #7f5af3'}}>
+      {/* <Text display="block" {...rest} color="white"> */}
         {children}
       </Text>
     </Link>
@@ -39,23 +41,28 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const MenuLinks = (props) => {
+  function ShouldClose () {
+    if (props.isOpen === true) {
+      props.toggle;
+    }
+  }
   return (
     <Box
       display={{ base: props.isOpen ? "block" : "none", md: "block" }}
       flexBasis={{ base: "100%", md: "auto" }}
       cursor="pointer"
+      onClick={ShouldClose}
     >
       <Stack
         spacing={8}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
-        // direction={["column", "row", "row", "row"]}
         direction={["column", "column", "row", "row"]}
         pt={[5, 5, 0, 0]}
         px= {4}
       >
-        <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/about">About Me</MenuItem>
+        <MenuItem to="/projects">Projects</MenuItem>
         <MenuItem to="/blog">Blog</MenuItem>
       </Stack>
     </Box>
@@ -75,12 +82,9 @@ const NavBarContainer = ({ children, ...props }) => {
       p={1} 
       px={3}
       borderRadius={ props.isOpen === true ? "20" : "100"}
-      // bg={["primary.500", "primary.500", "transparent", "transparent"]}
-      // color={["white", "white", "primary.700", "primary.700"]}
-      // bgGradient="linear(to-l, #7928CA, #FF0080)"
-      bgGradient="linear(to-l, #0d324d, #7f5a83)"
+      bgGradient={props.gradient}
       boxShadow="dark-lg"
-      {...props}
+      // {...props} this is wrong because it contains isOpen in it
     >
       {children}
     </Flex>
@@ -91,25 +95,17 @@ const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const gradient = props.gradient 
 
   return (
-    <Box mx={2} fontFamily="Alata">
+    <Box mx={2} fontFamily="head">
       <NavBarContainer {...props} isOpen={isOpen}>
         <DarkModeButton borderRadius="100" px="4" mt={[-0.5, -1.2, -1]} />
-        <Logo
-          // color={["primary.500", "primary.500"]}
-          boxShadow="dark-lg"
-          // borderColor="radial(#7928CA, #FF0080)"
-          // borderColor="linear(to-l, #7928CA, #FF0080)"
-          // border="4px"
-          // borderColor=""
-          // ml={[0, 0, 0, 0]}
-          size="3.5rem"
-        />
+        <Logo/>
 
         <MenuToggle toggle={toggle} isOpen={isOpen} />
 
-        <MenuLinks isOpen={isOpen} color="white" />
+        <MenuLinks toggle={toggle} isOpen={isOpen} color="white" />
       </NavBarContainer>
     </Box>
   );

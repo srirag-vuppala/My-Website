@@ -1,23 +1,18 @@
-import styles from '../styles/Layout.module.css'
-import Nav from './NavBar/Nav'
-import Head from "next/head";
+import Nav from './NavBar/Nav';
+import { Box } from '@chakra-ui/react';
+import Header from '@/components/Header';
 
 const Layout = ({ children }) => {
+    const gradient = "linear(to-l, g_start, g_end)"
     return (
         <>
-            <Head>
-                <title>Srirag's website</title>
-                <meta name="keywords" content="development, life, philosophy"></meta>
-            </Head>
+            <Header title="Srirag's Website" />
             {/* We should make this our navigation bar */}
-            <Nav />
-            <div >
-                <main>
+            <Nav gradient={gradient} />
+            <Box>
                     {children}
                     {/* We should make this our footer */} 
-
-                </main>
-            </div>
+            </Box>
         </>
     )
 }

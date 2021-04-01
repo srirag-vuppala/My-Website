@@ -1,13 +1,16 @@
-import React from 'react'
-import { Text } from '@chakra-ui/react'
+import React from "react";
+import { Box, Text } from "@chakra-ui/react";
+import Header from "@/components/Header";
 
 const projects = () => {
-    return (
-        <div>
-            <Text size="lg">Here are my projects</Text>
-        </div>
-    )
-}
+  return (
+    <>
+      <Header title="Projects" />
+      <Box>
+        <Text size="lg">Here are my projects</Text>
+      </Box>
+    </>
+  );
+};
 
-export default projects
-
+export default projects;

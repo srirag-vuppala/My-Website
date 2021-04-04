@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import { Box, Text, Header, ListItem, UnorderedList } from '@chakra-ui/react';
+import NextLink from "next/link";
+import { Box, Text, Header, Link, ListItem, UnorderedList } from '@chakra-ui/react';
 
 const CatContainer = ({ categories }) => {
   return (
@@ -8,9 +8,9 @@ const CatContainer = ({ categories }) => {
       <Box>
         <UnorderedList>
           <ListItem>
-            <Link href="/blog">
-              <a>Strapi Blog</a>
-            </Link>
+            <NextLink href="/blog">
+              <Link>Srirag's Blog</Link>
+            </NextLink>
           </ListItem>
         </UnorderedList>
       </Box>
@@ -20,9 +20,9 @@ const CatContainer = ({ categories }) => {
           {categories.map((category) => {
             return (
               <ListItem key={category.id}>
-                <Link as={`/blog/category/${category.slug}`} href="/blog/category/[id]">
-                  <a>{category.name}</a>
-                </Link>
+                <NextLink as={`/category/${category.slug}`} href="/category/[id]">
+                  <Link>{category.name}</Link>
+                </NextLink>
               </ListItem>
             );
           })}

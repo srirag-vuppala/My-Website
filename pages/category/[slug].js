@@ -1,8 +1,8 @@
-import Articles from "@/components/articles";
+import Articles from "@/components/Blog/Articles";
 import { fetchAPI } from "@/lib/api";
 import CatLayout from "@/components/CatLayout";
 import Seo from "@/components/Seo";
-import { Box, Text, Header } from "@chakra-ui/react";
+import { Box, Text, Heading } from "@chakra-ui/react";
 
 const Category = ({ category, categories }) => {
   const seo = {
@@ -14,7 +14,7 @@ const Category = ({ category, categories }) => {
     <CatLayout categories={categories}>
       <Seo seo={seo} />
       <Box>
-        <Header>{category.name}</Header>
+        <Heading>{category.name}</Heading>
         <Articles articles={category.articles} />
       </Box>
     </CatLayout>

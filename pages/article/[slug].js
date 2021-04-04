@@ -6,19 +6,23 @@ import CatLayout from "@/components/CatLayout";
 import Imager from "@/components/Blog/Imager";
 import Seo from "@/components/Seo";
 import { getStrapiMedia } from "@/lib/media";
-import { Box, Heading, Text, Link, Divider} from "@chakra-ui/react";
-import ChakraUIRenderer, { defaults } from 'chakra-ui-markdown-renderer';
+import { Box, Heading, Text, Link, Divider } from "@chakra-ui/react";
+import ChakraUIRenderer, { defaults } from "chakra-ui-markdown-renderer";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
 
   const newTheme = {
-    paragraph: props => {
+    paragraph: (props) => {
       const { children } = props;
-      return <Text mb={2} fontSize={'12px'}>{children}</Text>;
+      return (
+        <Text mb={2} fontSize={"15px"}>
+          {children}
+        </Text>
+      );
     },
-    ...defaults
-  }
+    ...defaults,
+  };
 
   const seo = {
     metaTitle: article.title,
@@ -30,29 +34,26 @@ const Article = ({ article, categories }) => {
   return (
     <CatLayout categories={categories}>
       <Seo seo={seo} />
-      <Box
-        id="banner"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-      >
+      <Box id="banner" data-src={imageUrl} data-srcset={imageUrl}>
         <Heading>{article.title}</Heading>
       </Box>
       <Box>
         <Box>
-          <ReactMarkdown render={ChakraUIRenderer(newTheme)} source={article.content} escapeHtml={false} />
+          <ReactMarkdown
+            render={ChakraUIRenderer(newTheme)}
+            source={article.content}
+            // source={markdown}
+            escapeHtml={false}
+          />
           <Divider />
           <Box>
             <Box>
               {article.author.picture && (
-                <Imager
-                  image={article.author.picture}
-                />
+                <Imager image={article.author.picture} />
               )}
             </Box>
             <Box>
-              <Text>
-                By {article.author.name}
-              </Text>
+              <Text>By {article.author.name}</Text>
               <Text>
                 <Moment format="MMM Do YYYY">{article.published_at}</Moment>
               </Text>

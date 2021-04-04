@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
     paragraph: (props) => {
       const { children } = props;
       return (
-        <Text my={100} fontSize={"15px"}>
+        <Text my={1} fontSize={"15px"}>
           {children}
         </Text>
       );
@@ -41,7 +41,7 @@ const Article = ({ article, categories }) => {
       <Box>
         <Box mx="2rem">
           <ReactMarkdown
-            // render={ChakraUIRenderer(newTheme)}
+            renderers={ChakraUIRenderer(newTheme)}
             // render={ChakraUIRenderer()}
             source={article.content}
             escapeHtml={false}

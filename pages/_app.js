@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
       <GlobalContext.Provider value={global}>
-        <ChakraProvider theme={customTheme}>
+        <ChakraProvider theme={customTheme} resetCSS>
           <Layout>
             <Component {...pageProps} />
           </Layout>

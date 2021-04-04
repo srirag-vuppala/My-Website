@@ -13,15 +13,15 @@ const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
 
   const newTheme = {
+    ...defaults,
     paragraph: (props) => {
       const { children } = props;
       return (
-        <Text mb={2} fontSize={"15px"}>
+        <Text my={100} fontSize={"15px"}>
           {children}
         </Text>
       );
     },
-    ...defaults,
   };
 
   const seo = {
@@ -35,14 +35,15 @@ const Article = ({ article, categories }) => {
     <CatLayout categories={categories}>
       <Seo seo={seo} />
       <Box id="banner" data-src={imageUrl} data-srcset={imageUrl}>
-        <Heading>{article.title}</Heading>
+        <Heading fontFamily="Alata" py="0.25rem">{article.title}</Heading>
       </Box>
+      <Divider />
       <Box>
-        <Box>
+        <Box mx="2rem">
           <ReactMarkdown
-            render={ChakraUIRenderer(newTheme)}
+            // render={ChakraUIRenderer(newTheme)}
+            // render={ChakraUIRenderer()}
             source={article.content}
-            // source={markdown}
             escapeHtml={false}
           />
           <Divider />

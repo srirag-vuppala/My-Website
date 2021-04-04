@@ -10,6 +10,7 @@ async function getPost(slug){
     `${BLOG_URL}/ghost/api/v3/content/posts/slug/${slug}?key=${CONTENT_API_KEY}&fields=title,slug,html`
   ).then((res) => res.json())
   const post = res.posts[0]
+  console.log(post)
 
   return post
 }

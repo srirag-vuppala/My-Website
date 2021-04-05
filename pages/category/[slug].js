@@ -15,7 +15,7 @@ const Category = ({ category, categories }) => {
       <Seo seo={seo} />
       <Box>
         <Heading>{category.name}</Heading>
-        <Articles articles={category.articles} />
+        <Articles articles={category.articles} categories={categories} />
       </Box>
     </CatLayout>
   );

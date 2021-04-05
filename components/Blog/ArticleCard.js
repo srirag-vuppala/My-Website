@@ -1,22 +1,35 @@
 import React from "react";
 import NextLink from "next/link";
 import Image from "@/components/Blog/Imager";
-import { Box, Text, Badge, Link, Stack } from "@chakra-ui/react";
+import { Box, Text, Badge, Link, Stack, ListItem } from "@chakra-ui/react";
 
-const Card = ({ article }) => {
+const ArticleCard = ({ article, categories }) => {
   // This article card is only for the outward card look not the Article itself
   return (
     <>
-      <Box w="400px" rounded="20px" overflow="hidden" boxShadow="sm">
+      {/* <Box w="400px" rounded="20px" overflow="hidden" boxShadow="sm" bgGradient="linear(to-l, g_start, g_end)"> */}
+      {/* <Box w="20rem" rounded="10px" overflow="hidden" boxShadow="dark-lg" bg="gt_end"> */}
+      <Box w="20rem" rounded="10px" overflow="hidden" boxShadow="dark-lg" bgGradient="conic(g_start, g_end)" color="white">
         <Box>
           <Image image={article.image} />
         </Box>
         {/* Inner text/description box */}
         <Box p={5}>
           <Stack isInline align="baseline">
-            <Badge variant="solid" rounded="full" px={2} id="category">
-              {article.category.name}
-            </Badge>
+              {categories.map((category) => {
+                if (category.name === article.category.name) {
+                  return (
+                    <Badge variant="solid" rounded="full" px={2} key={category.id} id="category">
+                      <NextLink
+                        as={`/category/${category.slug}`}
+                        href="/category/[id]"
+                      >
+                        {article.category.name}
+                      </NextLink>
+                    </Badge>
+                  );
+                }
+              })}
             <Badge variant="solid" rounded="full" px={2} id="category">
               {article.category.name}
             </Badge>
@@ -36,4 +49,4 @@ const Card = ({ article }) => {
   );
 };
 
-export default Card;
+export default ArticleCard;

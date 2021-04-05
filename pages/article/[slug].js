@@ -1,27 +1,31 @@
 import ReactMarkdown from "react-markdown";
-import Moment from "react-moment";
 import { fetchAPI } from "@/lib/api";
 // import Container from "@/components/CatContainer";
 import CatLayout from "@/components/CatLayout";
 import Imager from "@/components/Blog/Imager";
 import Seo from "@/components/Seo";
 import { getStrapiMedia } from "@/lib/media";
-import { Box, Heading, Text, Link, Divider } from "@chakra-ui/react";
-import ChakraUIRenderer, { defaults } from "chakra-ui-markdown-renderer";
+import {
+  Box,
+  Heading,
+  Text,
+  Link,
+  Divider,
+  UnorderedList,
+  ListItem,
+  ListIcon,
+  Avatar,
+} from "@chakra-ui/react";
+import MarkdownRenderers from '@/components/Blog/MarkdownRenderers';
+import ArticleFooter from '@/components/Blog/ArticleFooter'
+import math from "remark-math";
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
+  const gfm = require("remark-gfm");
 
-  const newTheme = {
-    ...defaults,
-    paragraph: (props) => {
-      const { children } = props;
-      return (
-        <Text my={1} fontSize={"15px"}>
-          {children}
-        </Text>
-      );
-    },
+  const NonChakraRenderers = {
+    list: (props) => <UnorderedList my={2} spacing={2}>{props.children}</UnorderedList>,
   };
 
   const seo = {
@@ -35,31 +39,21 @@ const Article = ({ article, categories }) => {
     <CatLayout categories={categories}>
       <Seo seo={seo} />
       <Box id="banner" data-src={imageUrl} data-srcset={imageUrl}>
-        <Heading fontFamily="Alata" py="0.25rem">{article.title}</Heading>
+        <Heading fontFamily="Alata" py="0.25rem" align="center" >
+          {article.title}
+        </Heading>
       </Box>
       <Divider />
       <Box>
-        <Box mx="2rem">
+        <Box mx="2rem" maxWidth="100%">
           <ReactMarkdown
-            renderers={ChakraUIRenderer(newTheme)}
-            // render={ChakraUIRenderer()}
+            renderers={MarkdownRenderers}
             source={article.content}
             escapeHtml={false}
+            plugins={[[gfm, { singleTilde: false }], [math]]}
           />
           <Divider />
-          <Box>
-            <Box>
-              {article.author.picture && (
-                <Imager image={article.author.picture} />
-              )}
-            </Box>
-            <Box>
-              <Text>By {article.author.name}</Text>
-              <Text>
-                <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-              </Text>
-            </Box>
-          </Box>
+          <ArticleFooter article={article} />
         </Box>
       </Box>
     </CatLayout>

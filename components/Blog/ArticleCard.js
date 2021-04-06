@@ -7,8 +7,6 @@ const ArticleCard = ({ article, categories }) => {
   // This article card is only for the outward card look not the Article itself
   return (
     <>
-      {/* <Box w="400px" rounded="20px" overflow="hidden" boxShadow="sm" bgGradient="linear(to-l, g_start, g_end)"> */}
-      {/* <Box w="20rem" rounded="10px" overflow="hidden" boxShadow="dark-lg" bg="gt_end"> */}
       <Box w="20rem" rounded="10px" overflow="hidden" boxShadow="dark-lg" bgGradient="conic(g_start, g_end)" color="white">
         <Box>
           <Image image={article.image} />
@@ -30,9 +28,6 @@ const ArticleCard = ({ article, categories }) => {
                   );
                 }
               })}
-            <Badge variant="solid" rounded="full" px={2} id="category">
-              {article.category.name}
-            </Badge>
           </Stack>
           <Text id="title" as="h2" fontWeight="semibold" fontSize="xl">
             <NextLink as={`/article/${article.slug}`} href="/article/[id]">

@@ -1,9 +1,9 @@
 import ReactMarkdown from "react-markdown";
 import { fetchAPI } from "@/lib/api";
 // import Container from "@/components/CatContainer";
-import CatLayout from "@/components/CatLayout";
+import CatLayout from "@/components/Blog/BlogLayout";
 import Imager from "@/components/Blog/Imager";
-import Seo from "@/components/Seo";
+import Seo from "@/components/Blog/Seo";
 import { getStrapiMedia } from "@/lib/media";
 import {
   Box,

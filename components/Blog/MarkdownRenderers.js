@@ -147,16 +147,17 @@ export const MarkdownRenderers = {
     return <Code {...getCoreProps(props)}>{children}</Code>;
   },
 
-  span: (props) => {
-    const { children } = props;
-    console.log(children);
-    return(
-      <AspectRatio ratio={1}>
-        {children}
-        <Text>b a d um stsss</Text>
-      </AspectRatio>
-    )
-  },
+  // Need to figure out a way to fix videos for mobile format
+  // span: (props) => {
+  //   const { children } = props;
+  //   console.log(children);
+  //   return(
+  //     <AspectRatio ratio={1}>
+  //       {children}
+  //       <Text>b a d um stsss</Text>
+  //     </AspectRatio>
+  //   )
+  // },
 };
 
 export default MarkdownRenderers;

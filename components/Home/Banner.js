@@ -13,7 +13,6 @@ import {
 import { motion } from "framer-motion";
 
 const Banner = () => {
-  //   const gradient = "radial(gt_start, gt_end)"
   const { colorMode, toggleColorMode } = useColorMode();
   function ColorChoose() {
     if (colorMode == "light") {

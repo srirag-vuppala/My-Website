@@ -1,7 +1,7 @@
 import Articles from "@/components/Blog/Articles";
 import { fetchAPI } from "@/lib/api";
-import CatLayout from "@/components/CatLayout";
-import Seo from "@/components/Seo";
+import CatLayout from "@/components/Blog/BlogLayout";
+import Seo from "@/components/Blog/Seo";
 import { Box, Text, Heading } from "@chakra-ui/react";
 
 const Category = ({ category, categories }) => {

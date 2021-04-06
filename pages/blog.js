@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchAPI } from "@/lib/api";
-import Seo from "@/components/Seo";
-import CatLayout from "@/components/CatLayout";
+import Seo from "@/components/Blog/Seo";
+import BlogLayout from "@/components/Blog/BlogLayout";
 import Articles from "@/components/Blog/Articles";
 import { Box, Text, Heading } from "@chakra-ui/react";
 //Strapi version
@@ -9,13 +9,13 @@ import { Box, Text, Heading } from "@chakra-ui/react";
 const blog = ({ articles, categories, homepage }) => {
   return (
     <>
-      <CatLayout categories={categories}>
+      <BlogLayout categories={categories}>
         <Seo seo={homepage.seo} />
         <Box>
           <Heading>{homepage.hero.title}</Heading>
           <Articles articles={articles} categories={categories} />
         </Box>
-      </CatLayout>
+      </BlogLayout>
     </>
   );
 };

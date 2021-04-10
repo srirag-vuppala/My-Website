@@ -1,8 +1,8 @@
-import Articles from "@/components/Blog/Articles";
 import { fetchAPI } from "@/lib/api";
-import CatLayout from "@/components/Blog/BlogLayout";
+import BlogLayout from "@/components/Blog/BlogLayout";
 import Seo from "@/components/Blog/Seo";
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box, Text, SimpleGrid, Heading } from "@chakra-ui/react";
+import CategoryLayout from "@/components/Blog/CategoryLayout";
 
 const Category = ({ category, categories }) => {
   const seo = {
@@ -11,13 +11,28 @@ const Category = ({ category, categories }) => {
   };
 
   return (
-    <CatLayout categories={categories}>
+    <BlogLayout categories={categories}>
       <Seo seo={seo} />
+      <Heading>{category.name}</Heading>
       <Box>
-        <Heading>{category.name}</Heading>
-        <Articles articles={category.articles} categories={categories} />
+        <SimpleGrid
+          minChildWidth="20rem"
+          spacing="80px"
+          mx={(null, null, null, "7rem")}
+        >
+          {category.articles.map((article, i) => {
+            return (
+              // <ArticleCard article={article} categories={categories} key={i}/>
+              <CategoryLayout
+                article={article}
+                categories={categories}
+                key={i}
+              />
+            );
+          })}
+        </SimpleGrid>
       </Box>
-    </CatLayout>
+    </BlogLayout>
   );
 };
 

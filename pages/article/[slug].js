@@ -8,13 +8,7 @@ import { getStrapiMedia } from "@/lib/media";
 import {
   Box,
   Heading,
-  Text,
-  Link,
   Divider,
-  UnorderedList,
-  ListItem,
-  ListIcon,
-  Avatar,
 } from "@chakra-ui/react";
 import MarkdownRenderers from '@/components/Blog/MarkdownRenderers';
 import ArticleFooter from '@/components/Blog/ArticleFooter'
@@ -23,10 +17,6 @@ import math from "remark-math";
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
   const gfm = require("remark-gfm");
-
-  const NonChakraRenderers = {
-    list: (props) => <UnorderedList my={2} spacing={2}>{props.children}</UnorderedList>,
-  };
 
   const seo = {
     metaTitle: article.title,

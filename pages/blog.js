@@ -3,7 +3,7 @@ import { fetchAPI } from "@/lib/api";
 import Seo from "@/components/Blog/Seo";
 import BlogLayout from "@/components/Blog/BlogLayout";
 import Articles from "@/components/Blog/Articles";
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box, Text, Spacer, Divider, Heading } from "@chakra-ui/react";
 //Strapi version
 
 const blog = ({ articles, categories, homepage }) => {
@@ -12,7 +12,8 @@ const blog = ({ articles, categories, homepage }) => {
       <BlogLayout categories={categories}>
         <Seo seo={homepage.seo} />
         <Box>
-          <Heading>{homepage.hero.title}</Heading>
+          <Heading align="center">My most recent blog posts</Heading>
+          <Divider my={4}/>
           <Articles articles={articles} categories={categories} />
         </Box>
       </BlogLayout>

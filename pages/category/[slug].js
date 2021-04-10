@@ -1,7 +1,7 @@
 import { fetchAPI } from "@/lib/api";
 import BlogLayout from "@/components/Blog/BlogLayout";
 import Seo from "@/components/Blog/Seo";
-import { Box, Text, SimpleGrid, Heading } from "@chakra-ui/react";
+import { Box, Text, SimpleGrid, Heading, Badge } from "@chakra-ui/react";
 import CategoryLayout from "@/components/Blog/CategoryLayout";
 
 const Category = ({ category, categories }) => {
@@ -13,8 +13,8 @@ const Category = ({ category, categories }) => {
   return (
     <BlogLayout categories={categories}>
       <Seo seo={seo} />
-      <Heading>{category.name}</Heading>
-      <Box>
+      <Heading>Blog posts related to <Badge fontSize="1.8rem" ml="1" colorScheme="facebook">{category.name}</Badge></Heading>
+      {/* <Box>
         <SimpleGrid
           minChildWidth="20rem"
           spacing="80px"
@@ -31,7 +31,8 @@ const Category = ({ category, categories }) => {
             );
           })}
         </SimpleGrid>
-      </Box>
+      </Box> */}
+      <CategoryLayout articles={category.articles} />
     </BlogLayout>
   );
 };

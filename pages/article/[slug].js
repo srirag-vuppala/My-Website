@@ -35,7 +35,7 @@ const Article = ({ article, categories }) => {
       </Box>
       <Divider />
       <Box>
-        <Box mx="2rem" maxWidth="100%">
+        <Box mx="0.2rem" maxWidth="100%">
           <ReactMarkdown
             renderers={MarkdownRenderers}
             source={article.content}

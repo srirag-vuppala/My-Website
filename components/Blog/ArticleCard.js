@@ -1,12 +1,24 @@
 import React from "react";
 import NextLink from "next/link";
 import Image from "@/components/Blog/Imager";
-import { Box, Text, Badge, Link, Stack, ListItem } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Badge,
+  Divider,
+  TagLeftIcon,
+  Tag,
+  TagLabel,
+  Link,
+  Stack,
+  ListItem,
+} from "@chakra-ui/react";
+import Moment from "react-moment";
+import { FcCalendar } from "react-icons/fc";
 
 const ArticleCard = ({ article, categories }) => {
   // This article card is only for the outward card look not the Article itself
   // console.log(article)
-
   const getCategoriesNames = () => {
     var i = 0;
     var arr = [];
@@ -63,7 +75,7 @@ const ArticleCard = ({ article, categories }) => {
         </Box>
         {/* Inner text/description box */}
         <Box p={5}>
-          <Stack isInline align="baseline" overflow="scroll">
+          <Stack isInline align="baseline" flexWrap="wrap" >
             {getBadges()}
           </Stack>
           <Text id="title" as="h2" fontWeight="semibold" fontSize="xl">
@@ -74,6 +86,15 @@ const ArticleCard = ({ article, categories }) => {
           <Text isTruncated fontWeight="light" fontSize="md">
             {article.description}
           </Text>
+          {/* <Divider /> */}
+          <Box align="right" mt={4}>
+          <Tag varient="outline" colorScheme="whiteAlpha">
+            <TagLeftIcon as={FcCalendar} />
+            <TagLabel fontWeight="light" as="em" align="right" color="white" fontSize="sm">
+              <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+            </TagLabel>
+          </Tag>
+          </Box>
           {/* Probably want to add estimated reading time here ? */}
         </Box>
       </Box>

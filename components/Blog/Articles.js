@@ -1,6 +1,6 @@
 import React from "react";
 import ArticleCard from "@/components/Blog/ArticleCard";
-import { Box, Stack, VStack, HStack, SimpleGrid, Flex } from "@chakra-ui/react";
+import { Box, Spacer, Stack, VStack, HStack, SimpleGrid, Flex } from "@chakra-ui/react";
 
 const Articles = ({ articles, categories }) => {
   // const leftArticlesCount = Math.ceil(articles.length / 5);
@@ -29,11 +29,13 @@ const Articles = ({ articles, categories }) => {
       {/* <SimpleGrid minChildWidth= "200px" spacing="40px"> */}
       <Box mx={5} align="center">
         {/* <SimpleGrid minChildWidth="20rem" spacing="80px"> */}
-        <Flex minChildWidth="20rem" spacing="80px" justify="space-between" flexWrap="wrap" gap="20px">
+        {/* <Flex minChildWidth="20rem" spacing="80px" justify="space-between" flexWrap="wrap" gap="20px"> */}
+        <Flex justify="space-between" flexWrap="wrap">
           {articles.map((article, i) => {
             return (
               <Box key={i} my={3}>
                 <ArticleCard article={article} categories={categories} key={i} />
+                <Spacer />
               </Box>
             );
           })}

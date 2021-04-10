@@ -1,6 +1,7 @@
 import React from "react";
 import NextLink from "next/link";
 import Image from "@/components/Blog/Imager";
+import Moment from "react-moment";
 import {
   Box,
   Text,
@@ -17,11 +18,57 @@ import {
   TableCaption,
 } from "@chakra-ui/react";
 
-const CategoryLayout = ({ article, categories }) => {
+const CategoryLayout = ({ articles }) => {
   return (
     <>
       {/* Might need to change to table */}
-      <Box
+      {/* <Table variant="striped" size="lg" colorScheme="blackAlpha"> */}
+      <Box overflowX="auto">
+        <Table variant="striped" size="lg" colorScheme="facebook">
+          <TableCaption>Made with love by Srirag</TableCaption>
+          <Thead>
+            <Tr>
+              <Th>Title</Th>
+              <Th>Description</Th>
+              <Th>Categories</Th>
+              <Th>Published At</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {articles.map((article, i) => {
+              // console.log(article);
+              return (
+                <Tr key={i} id={article.id}>
+                  <Td id="title">
+                    <NextLink
+                      as={`/article/${article.slug}`}
+                      href="/article/[id]"
+                    >
+                      <Link>{article.title}</Link>
+                    </NextLink>
+                  </Td>
+                  <Td>{article.description}</Td>
+                  <Td>{article.categories}</Td>
+                  {/* <Td>{article.publishedAt}</Td> */}
+                  <Td>
+                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                  </Td>
+                  {/* Probably want to add estimated reading time here ? */}
+                </Tr>
+              );
+            })}
+          </Tbody>
+          <Tfoot>
+            <Tr>
+              <Th>Title</Th>
+              <Th>Description</Th>
+              <Th>Categories</Th>
+              <Th>Published At</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </Box>
+      {/* <Box
         w="20rem"
         rounded="10px"
         overflow="hidden"
@@ -32,7 +79,6 @@ const CategoryLayout = ({ article, categories }) => {
         <Box>
           <Image image={article.image} />
         </Box>
-        {/* Inner text/description box */}
         <Box p={5}>
           <Stack isInline align="baseline">
             {categories.map((category) => {
@@ -64,9 +110,8 @@ const CategoryLayout = ({ article, categories }) => {
           <Text isTruncated fontWeight="light" fontSize="md">
             {article.description}
           </Text>
-          {/* Probably want to add estimated reading time here ? */}
         </Box>
-      </Box>
+      </Box> */}
     </>
   );
 };

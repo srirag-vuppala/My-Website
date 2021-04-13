@@ -12,7 +12,7 @@ const blog = ({ articles, categories, homepage }) => {
       <BlogLayout categories={categories}>
         <Seo seo={homepage.seo} />
         <Box>
-          <Heading align="center">My most recent blog posts</Heading>
+          <Heading align="center" fontFamily="head">My most recent blog posts</Heading>
           <Divider my={4}/>
           <Articles articles={articles} categories={categories} />
         </Box>

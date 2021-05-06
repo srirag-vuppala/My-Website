@@ -52,17 +52,21 @@ const MenuLinks = (props) => {
       flexBasis={{ base: "100%", md: "auto" }}
       cursor="pointer"
       onClick={ShouldClose}
+      bg="blackAlpha.400"
+      p={2}
+      m={[4, 4, 0, 0]}
+      borderRadius={["10px", "10px", "full"]}
     >
       <Stack
         spacing={8}
         align="center"
         justify={["center", "space-between", "flex-end", "flex-end"]}
         direction={["column", "column", "row", "row"]}
-        pt={[5, 5, 0, 0]}
+        // pt={[5, 5, 0, 0]}
         px= {4}
       >
-        {/* <MenuItem to="/about">About Me</MenuItem> */}
-        {/* <MenuItem to="/projects">Projects</MenuItem> */}
+        <MenuItem to="/about">About Me</MenuItem>
+        <MenuItem to="/projects">Projects</MenuItem>
         <MenuItem to="/blog">Blog</MenuItem>
       </Stack>
     </Box>
@@ -100,7 +104,7 @@ const NavBar = (props) => {
   return (
     <Box mx={2} fontFamily="head">
       <NavBarContainer {...props} isOpen={isOpen}>
-        <DarkModeButton borderRadius="100" px="4" mt={[-0.5, -1.2, -1]} />
+        <DarkModeButton borderRadius="full" px="4"  mt={[-0.5, -1.2, -1]} />
         <Logo/>
 
         <MenuToggle toggle={toggle} isOpen={isOpen} />

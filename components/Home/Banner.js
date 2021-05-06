@@ -47,10 +47,11 @@ const Banner = () => {
           align={["center","space-between", "space-around"]}
           justify={["center","space-between", "space-around"]}
         >
+          {/* <Box bg="blackAlpha.200"> */}
           <Flex
             justify="space-between"
             wrap="wrap"
-            grow="2"
+            grow="4"
             direction="column"
             align="space-between"
           >
@@ -67,6 +68,7 @@ const Banner = () => {
               <Text>Developer, Leader and Tea Enthusiast</Text>
             </Heading>
           </Flex>
+          {/* </Box> */}
 
           <Image
             borderRadius="full"

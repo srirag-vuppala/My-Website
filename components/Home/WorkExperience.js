@@ -13,6 +13,7 @@ const WorkExperience = () => {
           <WorkBox
             company="TRIO Achievers"
             position="Student Assistant"
+            companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1620330861/T_Ri_O_fe1e2b707b.jpg"
             startDate="January 2021"
             endDate="March 2021"
             description="sjfdljsldf"

@@ -50,7 +50,7 @@ const WorkBox = ({
         // boxShadow={`inset -4px 5px 0 ${ed}, 0 0 2px ${st}`}
         boxShadow="xl"
       >
-        <Stack spacing="22em" p={5} direction={["column", "column", "row", "row"]} align="center">
+        <Stack p={5} direction={["column", "column", "row", "row"]} align="center">
           <Box>
             <Stack
               direction={["column", "column", "row", "row"]}
@@ -72,7 +72,7 @@ const WorkBox = ({
               </Link>
             </Stack>
             <Spacer />
-            <Tag varient="outline" >
+            <Tag varient="outline" mt={3} >
               <TagLeftIcon as={FcCalendar} />
               <TagLabel
                 fontWeight="light"
@@ -83,11 +83,12 @@ const WorkBox = ({
                 {startDate} to {endDate}
               </TagLabel>
             </Tag>
-            <Text py={5}>{description}</Text>
+            <Text py={5} w={[null, null, "40em", "40em"]}>{description}</Text>
             {techStack.map((tech, i) => {
-              return <Tag py={1} key={i}>{tech}</Tag>;
+              return <Tag my={1} key={i}>{tech}</Tag>;
             })}
           </Box>
+            <Spacer />
           <Image boxSize="8em" src={companyLogo} borderRadius="1em" />
         </Stack>
       </Box>

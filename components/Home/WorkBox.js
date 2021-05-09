@@ -30,13 +30,6 @@ const WorkBox = ({
   techStack,
 }) => {
   const [st, ed] = useToken("colors", ["g_start", "g_end"]);
-  const [red100, blue200] = useToken(
-    // the key within the theme, in this case `theme.colors`
-    "colors",
-    // the subkey(s), resolving to `theme.colors.red.100`
-    ["red.100", "blue.200"]
-    // a single fallback or fallback array matching the length of the previous arg
-  );
 
   const { colorMode, toggleColorMode } = useColorMode();
   function ColorChoose() {
@@ -57,48 +50,45 @@ const WorkBox = ({
         // boxShadow={`inset -4px 5px 0 ${ed}, 0 0 2px ${st}`}
         boxShadow="xl"
       >
-        <Stack direction={["column", "column", "row", "row"]} align="center">
+        <Stack spacing="22em" p={5} direction={["column", "column", "row", "row"]} align="center">
           <Box>
             <Stack
               direction={["column", "column", "row", "row"]}
               align="center"
             >
               <Link href={companyURL} isExternal>
-                <HStack align="center" justify="center">
+                <Stack direction={["column", "column", "row", "row"]} align="center" justify="center">
+                  <Heading fontSize={["1.5em", null]}> {position}</Heading>
+                  <Heading fontSize={["1.5em"]}>at</Heading>
                   <Heading
-                    fontSize="2em"
+                    fontSize="1.5em"
                     fontFamily="body"
                     color={ColorChoose}
                   >
                     {company}
                   </Heading>
                   <ExternalLinkIcon mx="2px" />
-                </HStack>
+                </Stack>
               </Link>
             </Stack>
-            <HStack>
-              <Heading fontSize={["lg", null]}> {position}</Heading>
-              <Spacer />
-              <Tag varient="outline" >
-                <TagLeftIcon as={FcCalendar} />
-                <TagLabel
-                  fontWeight="light"
-                  as="em"
-                  align="right"
-                  fontSize="sm"
-                >
-                  {startDate} to {endDate}
-                </TagLabel>
-              </Tag>
-            </HStack>
-            &nbsp;
-            <Text>{description}</Text>
+            <Spacer />
+            <Tag varient="outline" >
+              <TagLeftIcon as={FcCalendar} />
+              <TagLabel
+                fontWeight="light"
+                as="em"
+                align="right"
+                fontSize="sm"
+              >
+                {startDate} to {endDate}
+              </TagLabel>
+            </Tag>
+            <Text py={5}>{description}</Text>
             {techStack.map((tech, i) => {
-              return <Tag key={i}>{tech}</Tag>;
+              return <Tag py={1} key={i}>{tech}</Tag>;
             })}
           </Box>
-          <Spacer />
-          <Image boxSize="8em" src={companyLogo} />
+          <Image boxSize="8em" src={companyLogo} borderRadius="1em" />
         </Stack>
       </Box>
     </>

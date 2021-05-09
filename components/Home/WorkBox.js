@@ -86,7 +86,7 @@ const WorkBox = ({
               </TagLabel>
             </Tag>
 
-            <List styleType="disc" w={[null, null, "50em", "50em"]} p={5}>
+            <List styleType="disc"  p={5}>
               {description.map((point, i) => {
                 return <ListItem  key={i} mt={1}>{point}</ListItem>
               })}

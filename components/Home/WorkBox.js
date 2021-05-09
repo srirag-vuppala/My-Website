@@ -18,8 +18,9 @@ import {
   Image,
   Link,
 } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { FcCalendar } from "react-icons/fc";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import NextLink from "next/link";
 
 const WorkBox = ({
   company,
@@ -30,6 +31,7 @@ const WorkBox = ({
   endDate,
   description,
   techStack,
+  categories,
 }) => {
   const [st, ed] = useToken("colors", ["g_start", "g_end"]);
 
@@ -52,14 +54,22 @@ const WorkBox = ({
         // boxShadow={`inset -4px 5px 0 ${ed}, 0 0 2px ${st}`}
         boxShadow="xl"
       >
-        <Stack p={5} direction={["column", "column", "row", "row"]} align="center">
+        <Stack
+          p={5}
+          direction={["column", "column", "row", "row"]}
+          align="center"
+        >
           <Box>
             <Stack
               direction={["column", "column", "row", "row"]}
               align="center"
             >
               <Link href={companyURL} isExternal>
-                <Stack direction={["column", "column", "row", "row"]} align="center" justify="center">
+                <Stack
+                  direction={["column", "column", "row", "row"]}
+                  align="center"
+                  justify="center"
+                >
                   <Heading fontSize={["1.5em", null]}> {position}</Heading>
                   <Heading fontSize={["1.5em"]}>at</Heading>
                   <Heading
@@ -74,26 +84,36 @@ const WorkBox = ({
               </Link>
             </Stack>
             <Spacer />
-            <Tag varient="outline" mt={3} >
+            <Tag varient="outline" mt={3}>
               <TagLeftIcon as={FcCalendar} />
-              <TagLabel
-                fontWeight="light"
-                as="em"
-                align="right"
-                fontSize="sm"
-              >
+              <TagLabel fontWeight="light" as="em" align="right" fontSize="sm">
                 {startDate} to {endDate}
               </TagLabel>
             </Tag>
 
-            <List styleType="disc"  p={5}>
+            <List styleType="disc" p={5}>
               {description.map((point, i) => {
-                return <ListItem  key={i} mt={1}>{point}</ListItem>
+                return (
+                  <ListItem key={i} mt={1}>
+                    {point}
+                  </ListItem>
+                );
               })}
             </List>
 
-            {techStack.map((tech, i) => {
-              return <Tag mx={1} key={i}>{tech}</Tag>;
+            {categories.map((category, j) => {
+              if (techStack.includes(category.name) === true) {
+                return (
+                  <Tag mx={1} key={j} id="category">
+                    <NextLink
+                      as={`/category/${categories[j].slug}`}
+                      href="/category/[id]"
+                    >
+                      {categories[j].name}
+                    </NextLink>
+                  </Tag>
+                );
+              }
             })}
           </Box>
           <Spacer />

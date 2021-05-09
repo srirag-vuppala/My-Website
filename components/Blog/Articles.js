@@ -1,6 +1,8 @@
+{/* This is the layout of the articles on the blog page */}
 import React from "react";
 import ArticleCard from "@/components/Blog/ArticleCard";
 import { Box, Spacer, Stack, VStack, HStack, SimpleGrid, Flex } from "@chakra-ui/react";
+
 
 const Articles = ({ articles, categories }) => {
   // const leftArticlesCount = Math.ceil(articles.length / 5);
@@ -9,27 +11,7 @@ const Articles = ({ articles, categories }) => {
 
   return (
     <>
-      {/* <HStack>
-
-      <VStack>
-        {leftArticles.map((article, i) => {
-          return (
-            <ArticleCard article={article} categories={categories} key={i}/>
-          )
-        })}
-      </VStack>
-      <VStack>
-        {rightArticles.map((article, i) => {
-          return (
-            <ArticleCard article={article} categories={categories} key={i}/>
-          )
-        })}
-      </VStack>
-    </HStack> */}
-      {/* <SimpleGrid minChildWidth= "200px" spacing="40px"> */}
-      <Box mx={5} align="center">
-        {/* <SimpleGrid minChildWidth="20rem" spacing="80px"> */}
-        {/* <Flex minChildWidth="20rem" spacing="80px" justify="space-between" flexWrap="wrap" gap="20px"> */}
+      <Box mx={10} align="center" justify="center">
         <Flex justify="space-between" flexWrap="wrap">
           {articles.map((article, i) => {
             return (
@@ -39,7 +21,6 @@ const Articles = ({ articles, categories }) => {
               </Box>
             );
           })}
-        {/* </SimpleGrid> */}
         </Flex>
       </Box>
     </>

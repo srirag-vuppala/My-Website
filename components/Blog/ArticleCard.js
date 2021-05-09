@@ -1,6 +1,6 @@
 import React from "react";
-import NextLink from "next/link";
 import Image from "@/components/Blog/Imager";
+import NextLink from "next/link";
 import {
   Box,
   Text,
@@ -13,6 +13,7 @@ import {
   Stack,
   ListItem,
 } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Moment from "react-moment";
 import { FcCalendar } from "react-icons/fc";
 
@@ -41,6 +42,7 @@ const ArticleCard = ({ article, categories }) => {
             variant="subtle"
             rounded="full"
             px={2}
+            my={2}
             key={categories[i].id}
             id="category"
             bg="g_start"
@@ -75,12 +77,15 @@ const ArticleCard = ({ article, categories }) => {
         </Box>
         {/* Inner text/description box */}
         <Box p={5}>
-          <Stack isInline align="baseline" flexWrap="wrap" >
+          <Stack isInline align="baseline" flexWrap="wrap">
             {getBadges()}
           </Stack>
           <Text id="title" as="h2" fontWeight="semibold" fontSize="xl">
             <NextLink as={`/article/${article.slug}`} href="/article/[id]">
-              <Link>{article.title}</Link>
+              <Link>
+                {article.title}
+                <ExternalLinkIcon mx="2px" />
+              </Link>
             </NextLink>
           </Text>
           <Text isTruncated fontWeight="light" fontSize="md">
@@ -88,12 +93,18 @@ const ArticleCard = ({ article, categories }) => {
           </Text>
           {/* <Divider /> */}
           <Box align="right" mt={4}>
-          <Tag varient="outline" colorScheme="whiteAlpha">
-            <TagLeftIcon as={FcCalendar} />
-            <TagLabel fontWeight="light" as="em" align="right" color="white" fontSize="sm">
-              <Moment format="MMM Do YYYY">{article.published_at}</Moment>
-            </TagLabel>
-          </Tag>
+            <Tag varient="outline" colorScheme="whiteAlpha">
+              <TagLeftIcon as={FcCalendar} />
+              <TagLabel
+                fontWeight="light"
+                as="em"
+                align="right"
+                color="white"
+                fontSize="sm"
+              >
+                <Moment format="MMM Do YYYY">{article.publishedAt}</Moment>
+              </TagLabel>
+            </Tag>
           </Box>
           {/* Probably want to add estimated reading time here ? */}
         </Box>

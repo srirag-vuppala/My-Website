@@ -1,7 +1,7 @@
-import { fetchAPI } from "@/lib/api";
-import BlogLayout from "@/components/Blog/BlogLayout";
 import Seo from "@/components/Blog/Seo";
+import { fetchAPI } from "@/lib/api";
 import { Box, Text, SimpleGrid, Heading, Badge } from "@chakra-ui/react";
+import BorderBox from "@/components/BorderBox";
 import CategoryLayout from "@/components/Blog/CategoryLayout";
 
 const Category = ({ category, categories }) => {
@@ -11,29 +11,19 @@ const Category = ({ category, categories }) => {
   };
 
   return (
-    <BlogLayout categories={categories}>
-      <Seo seo={seo} />
-      <Heading>Blog posts related to <Badge fontSize="1.8rem" ml="1" colorScheme="facebook">{category.name}</Badge></Heading>
-      {/* <Box>
-        <SimpleGrid
-          minChildWidth="20rem"
-          spacing="80px"
-          mx={(null, null, null, "7rem")}
-        >
-          {category.articles.map((article, i) => {
-            return (
-              // <ArticleCard article={article} categories={categories} key={i}/>
-              <CategoryLayout
-                article={article}
-                categories={categories}
-                key={i}
-              />
-            );
-          })}
-        </SimpleGrid>
-      </Box> */}
-      <CategoryLayout articles={category.articles} />
-    </BlogLayout>
+    // <BlogLayout categories={categories}>
+    <Box mx={5}>
+      <BorderBox>
+        <Seo seo={seo} />
+        <Heading>
+          Blog posts related to{" "}
+          <Badge fontSize="1.8rem" ml="1" colorScheme="facebook">
+            {category.name}
+          </Badge>
+        </Heading>
+        <CategoryLayout articles={category.articles} />
+      </BorderBox>
+    </Box>
   );
 };
 

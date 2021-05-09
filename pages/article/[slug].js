@@ -1,52 +1,15 @@
-import ReactMarkdown from "react-markdown";
 import { fetchAPI } from "@/lib/api";
-// import Container from "@/components/CatContainer";
-import CatLayout from "@/components/Blog/BlogLayout";
-import Imager from "@/components/Blog/Imager";
-import Seo from "@/components/Blog/Seo";
-import { getStrapiMedia } from "@/lib/media";
-import {
-  Box,
-  Heading,
-  Divider,
-} from "@chakra-ui/react";
-import MarkdownRenderers from '@/components/Blog/MarkdownRenderers';
-import ArticleFooter from '@/components/Blog/ArticleFooter'
-import math from "remark-math";
-
+import ArticleLayout from "@/components/Blog/ArticleLayout";
+import { Box, Heading, Divider, Center } from "@chakra-ui/react";
 const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.image);
-  const gfm = require("remark-gfm");
-
-  const seo = {
-    metaTitle: article.title,
-    metaDescription: article.description,
-    shareImage: article.image,
-    article: true,
-  };
-
   return (
-    <CatLayout categories={categories}>
-      <Seo seo={seo} />
-      <Box id="banner" data-src={imageUrl} data-srcset={imageUrl}>
-        <Heading fontFamily="Alata" py="0.25rem" align="center" >
-          {article.title}
-        </Heading>
-      </Box>
-      <Divider />
-      <Box>
-        <Box mx="0.2rem" maxWidth="100%">
-          <ReactMarkdown
-            renderers={MarkdownRenderers}
-            source={article.content}
-            escapeHtml={false}
-            plugins={[[gfm, { singleTilde: false }], [math]]}
-          />
-          <Divider />
-          <ArticleFooter article={article} />
+    <>
+      <Center>
+        <Box w={["100%", "70%","70%"]}>
+          <ArticleLayout categories={categories} article={article} />
         </Box>
-      </Box>
-    </CatLayout>
+      </Center>
+    </>
   );
 };
 

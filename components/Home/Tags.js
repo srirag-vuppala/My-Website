@@ -15,14 +15,14 @@ import {
 } from "@chakra-ui/react";
 import BorderBox from "@/components/BorderBox";
 
-const BlogBanner = ({ categories, ...props }) => {
+const Tags = ({ categories, ...props }) => {
   // a blogbanner shouldn't make sense we should just have a universal search anything
   return (
     <>
-      <Box {...props}>
+      <Box mx={5} {...props}>
         <BorderBox>
           <Heading align="center" fontFamily="head">
-            Click to find any related blog posts.
+            Click to find any related items.
           </Heading>
           <br />
           <Box>
@@ -30,6 +30,7 @@ const BlogBanner = ({ categories, ...props }) => {
             <Flex justify="center" align="center" flexWrap="wrap">
               {categories.map((category) => {
                 const Navgradient = "repeating-linear(to-l, g_start, g_end)";
+                if (category.articles.length > 0) {
                 return (
                   <Tag
                     variant="outline"
@@ -52,6 +53,7 @@ const BlogBanner = ({ categories, ...props }) => {
                     </NextLink>
                   </Tag>
                 );
+                }
               })}
             </Flex>
           </Box>
@@ -61,4 +63,5 @@ const BlogBanner = ({ categories, ...props }) => {
   );
 };
 
-export default BlogBanner;
+export default Tags;
+

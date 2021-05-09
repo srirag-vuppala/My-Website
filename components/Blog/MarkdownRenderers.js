@@ -11,7 +11,7 @@ import {
   Image,
   OrderedList,
   UnorderedList,
-  AspectRatio
+  AspectRatio,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
@@ -30,11 +30,7 @@ function getCoreProps(props) {
 export const MarkdownRenderers = {
   paragraph: (props) => {
     const { children } = props;
-    return (
-      <Text my={2}>
-        {children}
-      </Text>
-    );
+    return <Text my={5}>{children}</Text>;
   },
   emphasis: (props) => {
     const { children } = props;
@@ -136,7 +132,7 @@ export const MarkdownRenderers = {
         as={`h${level}`}
         size={sizes[`${level - 1}`]}
         {...getCoreProps(props)}
-        fontFamily='Alata'
+        fontFamily="Alata"
       >
         {children}
       </Heading>
@@ -148,16 +144,16 @@ export const MarkdownRenderers = {
   },
 
   // Need to figure out a way to fix videos for mobile format
-  // span: (props) => {
-  //   const { children } = props;
-  //   console.log(children);
-  //   return(
-  //     <AspectRatio ratio={1}>
-  //       {children}
-  //       <Text>b a d um stsss</Text>
-  //     </AspectRatio>
-  //   )
-  // },
+  video: (props) => {
+    const { children } = props;
+    console.log(children);
+    return (
+      <>
+        <AspectRatio ratio={1}>{children}</AspectRatio>
+        <Text>b a d um stsss</Text>
+      </>
+    );
+  },
 };
 
 export default MarkdownRenderers;

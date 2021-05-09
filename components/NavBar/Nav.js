@@ -65,8 +65,8 @@ const MenuLinks = (props) => {
         // pt={[5, 5, 0, 0]}
         px= {4}
       >
-        <MenuItem to="/about">About Me</MenuItem>
-        <MenuItem to="/projects">Projects</MenuItem>
+        {/* <MenuItem to="/about">About Me</MenuItem>
+        <MenuItem to="/projects">Projects</MenuItem> */}
         <MenuItem to="/blog">Blog</MenuItem>
       </Stack>
     </Box>

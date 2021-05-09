@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, useColorMode } from "@chakra-ui/react";
 
-const BorderBox = ({ children }) => {
+const BorderBox = ({ children, ...props } ) => {
   const { colorMode, toggleColorMode } = useColorMode();
   function ColorChoose() {
     if (colorMode == "light") {
@@ -20,6 +20,7 @@ const BorderBox = ({ children }) => {
         py={[3, null, 6]}
         borderColor={ColorChoose}
         boxShadow="inner"
+        {...props}
       >
         {children}
       </Box>

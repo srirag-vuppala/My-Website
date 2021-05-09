@@ -10,6 +10,8 @@ import {
   HStack,
   useColorMode,
   useToken,
+  List,
+  ListItem,
   Tag,
   TagLeftIcon,
   TagLabel,
@@ -83,12 +85,18 @@ const WorkBox = ({
                 {startDate} to {endDate}
               </TagLabel>
             </Tag>
-            <Text py={5} w={[null, null, "40em", "40em"]}>{description}</Text>
+
+            <List styleType="disc" w={[null, null, "50em", "50em"]} p={5}>
+              {description.map((point, i) => {
+                return <ListItem  key={i} mt={1}>{point}</ListItem>
+              })}
+            </List>
+
             {techStack.map((tech, i) => {
-              return <Tag my={1} key={i}>{tech}</Tag>;
+              return <Tag mx={1} key={i}>{tech}</Tag>;
             })}
           </Box>
-            <Spacer />
+          <Spacer />
           <Image boxSize="8em" src={companyLogo} borderRadius="1em" />
         </Stack>
       </Box>

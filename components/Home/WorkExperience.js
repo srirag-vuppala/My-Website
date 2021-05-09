@@ -19,7 +19,7 @@ const WorkExperience = () => {
             companyURL="https://trioachievers.calpoly.edu/"
             startDate="January 2021"
             description={["Assisting the TRIO Achievers program coordinators with managing their website using Drupal CMS, adhering to federal guidelines.","Built data pathways between the backend database (Blumen) and Drupal for enhanced user access and data transparency."]}
-            endDate="March 2021"
+            endDate="Present"
             techStack={["HTML", "CSS"]}
           />
           <WorkBox

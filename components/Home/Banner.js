@@ -12,6 +12,8 @@ import {
 
 import { motion } from "framer-motion";
 
+const emoji = require("emoji-dictionary");
+
 const Banner = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   function ColorChoose() {
@@ -43,14 +45,15 @@ const Banner = () => {
         <Stack
           direction={["column", "row"]}
           spacing={["2rem", "11rem"]}
-        //   justify="center"
-          align={["center","space-between", "space-around"]}
-          justify={["center","space-between", "space-around"]}
+          //   justify="center"
+          align={["center", "space-between", "space-around"]}
+          justify={["center", "space-between", "space-around"]}
         >
+          {/* <Box bg="blackAlpha.200"> */}
           <Flex
             justify="space-between"
             wrap="wrap"
-            grow="2"
+            grow="4"
             direction="column"
             align="space-between"
           >
@@ -58,15 +61,18 @@ const Banner = () => {
               Hello, my name is
             </Heading>
             <Heading fontFamily="head" size="xl">
-              {/* <Text bgGradient={gradient} bgClip="text" fontSize="6xl">Srirag Vuppala</Text> */}
               <Text color={ColorChoose} fontSize="6xl">
                 Srirag Vuppala
               </Text>
             </Heading>
             <Heading fontFamily="body" as="h4" fontWeight="light">
-              <Text>Developer, Leader and Tea Enthusiast</Text>
+              <Text>
+                Developer, Leader, and Amateur Plant Grower{" "}
+                {emoji.getUnicode("seedling")}
+              </Text>
             </Heading>
           </Flex>
+          {/* </Box> */}
 
           <Image
             borderRadius="full"

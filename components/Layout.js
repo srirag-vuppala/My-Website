@@ -1,6 +1,8 @@
-import Nav from "./NavBar/Nav";
+import Nav from "@/components/NavBar/Nav";
 import { Box } from "@chakra-ui/react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer/Footer";
+
 
 const Layout = ({ children }) => {
   // const Navgradient = "linear(to-l, g_start, g_end)";
@@ -14,6 +16,8 @@ const Layout = ({ children }) => {
         {children}
         {/* We should make this our footer */}
       </Box>
+      <Footer gradient={Navgradient} />
+
     </>
   );
 };

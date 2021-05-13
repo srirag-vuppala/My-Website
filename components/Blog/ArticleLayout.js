@@ -7,7 +7,8 @@ import math from "remark-math";
 import { getStrapiMedia } from "@/lib/media";
 import ReactMarkdown from "react-markdown";
 
-const ArticleLayout = ({ categories, article }) => {
+// const ArticleLayout = ({ categories, article }) => {
+const ArticleLayout = ({ article }) => {
 
   const gfm = require("remark-gfm");
 

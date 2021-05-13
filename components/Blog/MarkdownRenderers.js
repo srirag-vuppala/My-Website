@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Text,
+  Box,
   Code,
   Divider,
   Link,

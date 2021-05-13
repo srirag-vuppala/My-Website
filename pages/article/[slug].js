@@ -1,7 +1,8 @@
 import { fetchAPI } from "@/lib/api";
 import ArticleLayout from "@/components/Blog/ArticleLayout";
 import { Box, Heading, Divider, Center } from "@chakra-ui/react";
-const Article = ({ article, categories }) => {
+// const Article = ({ article, categories }) => {
+const Article = ({ article }) => {
   return (
     <>
       <Center>

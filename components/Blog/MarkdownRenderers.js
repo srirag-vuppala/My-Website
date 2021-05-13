@@ -39,7 +39,7 @@ export const MarkdownRenderers = {
   },
   blockquote: (props) => {
     const { children } = props;
-    return <Box bg="#f9f9f9"><Text as="cite" p={2}>{children}</Text></Box>;
+    return <Box bg="#f9f9f9" p={2}><Text as="cite" >{children}</Text></Box>;
   },
   code: ({ language, value }) => {
     return (

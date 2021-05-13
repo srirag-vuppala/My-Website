@@ -64,24 +64,9 @@ const WorkBox = ({
               direction={["column", "column", "row", "row"]}
               align="center"
             >
-              <Link href={companyURL} isExternal>
-                <Stack
-                  direction={["column", "column", "row", "row"]}
-                  align="center"
-                  justify="center"
-                >
-                  <Heading fontSize={["1.5em", null]}> {position}</Heading>
-                  <Heading fontSize={["1.5em"]}>at</Heading>
-                  <Heading
-                    fontSize="1.5em"
-                    fontFamily="body"
-                    color={ColorChoose}
-                  >
-                    {company}
-                  </Heading>
-                  <ExternalLinkIcon mx="2px" />
-                </Stack>
-              </Link>
+            <Link href={companyURL} isExternal>
+                <Heading fontSize={["1.5em", null]} color={ColorChoose}> {position} at {company} <ExternalLinkIcon mx="2px" /></Heading>
+            </Link>
             </Stack>
             <Spacer />
             <Tag varient="outline" mt={3}>
@@ -117,7 +102,7 @@ const WorkBox = ({
             })}
           </Box>
           <Spacer />
-          <Image boxSize="8em" src={companyLogo} borderRadius="1em" />
+          {companyLogo !== "" && <Image boxSize="8em" src={companyLogo} borderRadius="1em" />}
         </Stack>
       </Box>
     </>

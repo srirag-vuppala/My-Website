@@ -6,7 +6,7 @@ import WorkBox from "@/components/Home/WorkBox";
 const WorkExperience = ({ categories }) => {
   return (
     <>
-      <Box p={6}>
+      <Box px={6} py={1}>
         <BorderBox>
           <Heading fontFamily="head">Work Experience</Heading>
           <Divider />
@@ -14,7 +14,7 @@ const WorkExperience = ({ categories }) => {
           <WorkBox
             company="Celebrate!"
             position="Full Stack Software Engineering Intern"
-            companyLogo=""
+            companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1620884672/celebrate_c197594205.jpg"
             companyURL="https://careboxgifting.com/"
             startDate="August 2020"
             endDate="December 2020"

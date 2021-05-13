@@ -37,6 +37,8 @@ const CategoryLayout = ({ articles }) => {
           <Tbody>
             {articles.map((article, i) => {
               // console.log(article);
+              if (article.status === 'published') {
+
               return (
                 <Tr key={i} id={article.id}>
                   <Td id="title">
@@ -56,6 +58,7 @@ const CategoryLayout = ({ articles }) => {
                   {/* Probably want to add estimated reading time here ? */}
                 </Tr>
               );
+              }
             })}
           </Tbody>
           <Tfoot>

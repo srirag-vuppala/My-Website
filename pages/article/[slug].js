@@ -15,7 +15,7 @@ const Article = ({ article }) => {
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ params }) {
   const articles = await fetchAPI(
     `/articles?slug=${params.slug}&status=published`
   );

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/srirag
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://srirag.dev
+  * I am srirag (https://keybase.io/srirag) on keybase.
+  * I have a public key ASCjNIRBrWfR1gRq3fVQDea61i21kC0SsLWV2-y5sXVC6Ao
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a3348441ad67d1d6046addf5500de6bad62db5902d12b0b595dbecb9b17542e80a",
+      "host": "keybase.io",
+      "kid": "0120a3348441ad67d1d6046addf5500de6bad62db5902d12b0b595dbecb9b17542e80a",
+      "uid": "2fc3dc35caecea6febcf0514e8be1619",
+      "username": "srirag"
+    },
+    "merkle_root": {
+      "ctime": 1621405588,
+      "hash": "e7eab428b71c856c9f75c84ae2884ea0375e56bef9051e2240688d044f5971f8bc63c04e8807b0acbaed51c9751269c30703dcfc8cf33ce801a5e53ce24749b0",
+      "hash_meta": "a550b6ffceaf489e51f3340aac9954f3ec89c148b14a545c0cedc0fee226c734",
+      "seqno": 19985049
+    },
+    "service": {
+      "entropy": "FmmFYtFL4UMUhi3GG9Uj4Nna",
+      "hostname": "srirag.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.1"
+  },
+  "ctime": 1621405608,
+  "expire_in": 504576000,
+  "prev": "8e2bd3e46c05ea9608d02f652d860ffde5ee452f107223d60a6533bf64dd52d8",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgozSEQa1n0dYEat31UA3mutYttZAtErC1ldvsubF1QugKp3BheWxvYWTESpcCCcQgjivT5GwF6pYI0C9lLYYP/eXuRS8QciPWCmUzv2TdUtjEIJLOxQ2m3kunjspdzMXDUdImEJYXQwlZjMrSYTwa8VVRAgHCo3NpZ8RAZBDoCoXAlecXDXBKTGfSndQX7TRakZnLZWeaM/PyG3JWouhRKmOYNKqe4CvGU8tRNDHetw7ovlV19VN2rbXfCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHqy6oMq7rSUaum3CQ3Qv+W/eLhx8txxS66ITY6eRDX4o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/srirag
+
+==================================================================

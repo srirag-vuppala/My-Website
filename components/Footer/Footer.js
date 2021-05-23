@@ -18,6 +18,7 @@ const Footer = (props) => {
   const socialMediaSize = 7;
   return (
     <>
+      {/* <Box position="absolute" left="0" bottom="0" right="0"> */}
       <Box>
         {/* I want a Privacy policy */}
         {/* I want to list all the open source licenses I use */}

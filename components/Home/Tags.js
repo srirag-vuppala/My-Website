@@ -26,7 +26,7 @@ const Tags = ({ categories, ...props }) => {
           </Heading>
           <br />
           <Box>
-            {console.log(categories)}
+            {/* {console.log(categories)} */}
             <Flex justify="center" align="center" flexWrap="wrap">
               {categories.map((category) => {
                 const Navgradient = "repeating-linear(to-l, g_start, g_end)";

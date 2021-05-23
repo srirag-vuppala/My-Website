@@ -14,9 +14,10 @@ const Layout = ({ children }) => {
       <Nav gradient={Navgradient} />
       <Box>
         {children}
-        {/* We should make this our footer */}
       </Box>
-      <Footer gradient={Navgradient} />
+      <Box>
+        <Footer gradient={Navgradient} />
+      </Box>
 
     </>
   );

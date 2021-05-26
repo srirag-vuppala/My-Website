@@ -59,7 +59,7 @@ export const MarkdownRenderers = {
   },
   blockquote: (props) => {
     const { children } = props;
-    return <Box bg={ColorChooseBlockQuote} p={2}><Text as="cite" >{children}</Text></Box>;
+    return <Box bg={ColorChooseBlockQuote} px={4} py={1} borderRadius={12}><Text as="cite" >{children}</Text></Box>;
   },
   code: ({ language, value }) => {
     return (
@@ -92,7 +92,10 @@ export const MarkdownRenderers = {
   thematicBreak: Divider,
   link: (props) => {
     const { children } = props;
-    return <Link color={ColorChoose} href={props.href} isExternal>{children}<ExternalLinkIcon mx="2px"/></Link>;
+    return (
+      // Need to figure out a way to differentiate citation and external
+     <Link color={ColorChoose} href={props.href} isExternal>{children}<ExternalLinkIcon mx="2px"/></Link>
+     );
   },
   a: (props) => {
     const { children } = props;

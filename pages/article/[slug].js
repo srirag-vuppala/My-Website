@@ -6,7 +6,7 @@ const Article = ({ article }) => {
   return (
     <>
       <Center>
-        <Box w={["100%", "70%","70%"]}>
+        <Box w={["100%", "95%", "90%", "70%"]}>
           {/* <ArticleLayout categories={categories} article={article} /> */}
           <ArticleLayout article={article} />
         </Box>

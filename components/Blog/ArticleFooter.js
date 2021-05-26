@@ -19,7 +19,7 @@ const ArticleFooter = ({ article }) => {
         <Box>
           <Text>By {article.author.name}</Text>
           <Text>
-            <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+            <Moment format="MMM Do YYYY">{article.publishedAt}</Moment>
           </Text>
         </Box>
         <Spacer />

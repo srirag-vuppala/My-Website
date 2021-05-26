@@ -14,6 +14,7 @@ import {
   OrderedList,
   UnorderedList,
   AspectRatio,
+  Center,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
@@ -105,7 +106,11 @@ export const MarkdownRenderers = {
     const { children } = props;
     return (<Center><Text color="red" as="cite">{children}</Text></Center>)
   },
-  img: Image,
+  img: (props) => {
+    const { children } = props;
+    console.log(props);
+    return (<Center><Image src={props.url} alt={props.alt} /></Center>)
+  },
   linkReference: Link,
   imageReference: Image,
   text: (props) => {

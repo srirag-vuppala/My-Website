@@ -92,7 +92,7 @@ export const MarkdownRenderers = {
   thematicBreak: Divider,
   link: (props) => {
     const { children } = props;
-    return <Link href={children} color={ColorChoose} isExternal>{children}<ExternalLinkIcon mx="2px"/></Link>;
+    return <Link color={ColorChoose} isExternal>{children}<ExternalLinkIcon mx="2px"/></Link>;
   },
   a: (props) => {
     const { children } = props;

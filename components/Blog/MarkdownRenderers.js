@@ -10,11 +10,12 @@ import {
   ListIcon,
   Heading,
   Image,
+  useColorMode,
   OrderedList,
   UnorderedList,
   AspectRatio,
 } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
 //Markdown code
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -28,6 +29,25 @@ function getCoreProps(props) {
     : {};
 }
 
+  function ColorChoose() {
+    const { colorMode, toggleColorMode } = useColorMode();
+    if (colorMode == "light") {
+      return "#0a304a";
+    } else {
+      return "#7f5a83";
+    }
+  }
+
+  function ColorChooseBlockQuote() {
+    const { colorMode, toggleColorMode } = useColorMode();
+    if (colorMode == "light") {
+      return "#f9f9f9";
+    } else {
+      return "#7f5a83";
+    }
+  }
+
+
 export const MarkdownRenderers = {
   paragraph: (props) => {
     const { children } = props;
@@ -39,7 +59,7 @@ export const MarkdownRenderers = {
   },
   blockquote: (props) => {
     const { children } = props;
-    return <Box bg="#f9f9f9" p={2}><Text as="cite" >{children}</Text></Box>;
+    return <Box bg={ColorChooseBlockQuote} p={2}><Text as="cite" >{children}</Text></Box>;
   },
   code: ({ language, value }) => {
     return (
@@ -70,7 +90,18 @@ export const MarkdownRenderers = {
     return <Text as="del">{children}</Text>;
   },
   thematicBreak: Divider,
-  link: Link,
+  link: (props) => {
+    const { children } = props;
+    return <Link href={children} color={ColorChoose} isExternal>{children}<ExternalLinkIcon mx="2px"/></Link>;
+  },
+  a: (props) => {
+    const { children } = props;
+    return <Link href={children}>{children}</Link>;
+  },
+  figcaption: (props) => {
+    const { children } = props;
+    return (<Center><Text color="red" as="cite">{children}</Text></Center>)
+  },
   img: Image,
   linkReference: Link,
   imageReference: Image,

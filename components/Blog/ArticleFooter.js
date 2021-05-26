@@ -2,8 +2,17 @@ import React from "react";
 import { getStrapiMedia } from "@/lib/media";
 import { Box, Text, Avatar, HStack, Spacer } from "@chakra-ui/react";
 import Moment from "react-moment";
+import { DiscussionEmbed } from "disqus-react"
+
 
 const ArticleFooter = ({ article }) => {
+
+  const disqusShortname = "srirag-dev"
+  const disqusConfig = {
+      url: `http://localhost:3000/article/${article.slug}`,
+      identifier: article.id,
+      title: article.title,
+    }
   return (
     <>
       <HStack py={2}>
@@ -23,6 +32,7 @@ const ArticleFooter = ({ article }) => {
           )}
         </Box>
       </HStack>
+      {/* <DiscussionEmbed shortname={disqusShortname} config={disqusConfig}/> */}
     </>
   );
 };

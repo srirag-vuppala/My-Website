@@ -25,12 +25,12 @@ const WorkExperience = ({ categories }) => {
 
           <WorkBox
             company="IATPP"
-            position="Student Assistant"
+            position="Student Research Assistant"
             companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1620282769/IATPP_262ad391d3.jpg"
             companyURL="https://iatpp.calpoly.edu/"
             startDate="April 2021"
             endDate="Present"
-            description={["Worked on the AI4Reporters team helping them set up their website to render the articles",""]}
+            description={["Worked on the AI4Reporters team helping them set up their website to render the articles","Built a tagging system for the article inventory", "Implemented with JavaScript, React, Django, Styled Components"]}
             techStack={["HTML", "CSS", "JavaScript", "React", "Django", "Linux", "CI/CD"]}
             categories={categories}
           />

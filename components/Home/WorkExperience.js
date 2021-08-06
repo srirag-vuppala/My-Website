@@ -12,6 +12,18 @@ const WorkExperience = ({ categories }) => {
           <Divider />
 
           <WorkBox
+            company="Project Jupyter"
+            position="Software Engineering Intern"
+            companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1628226587/Jupyter_logo_svg_2ce7281cda.png"
+            companyURL="https://jupyter.org/"
+            startDate="May 2021"
+            endDate="Present"
+            description={["Creating a RTC commenting and chat extension for the JupyterLab v3 (Similar to Google Docs)","Presented our work at SciPy 2021 to  400+ attendees to encourage engagement.", "Working primarily with technologies involving React, Lumino and Y.js in Typescript"]}
+            techStack={["React", "HTML", "CSS", "Lumino", "Y.js", "Typescript" ]}
+            categories={categories}
+          />
+
+          <WorkBox
             company="Celebrate!"
             position="Full Stack Software Engineering Intern"
             companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1620884672/celebrate_c197594205.jpg"
@@ -29,7 +41,7 @@ const WorkExperience = ({ categories }) => {
             companyLogo="https://res.cloudinary.com/dtbzgpkps/image/upload/v1620282769/IATPP_262ad391d3.jpg"
             companyURL="https://iatpp.calpoly.edu/"
             startDate="April 2021"
-            endDate="Present"
+            endDate="Present"ya
             description={["Worked on the AI4Reporters team helping them set up their website to render the articles","Built a tagging system for the article inventory", "Implemented with JavaScript, React, Django, Styled Components"]}
             techStack={["HTML", "CSS", "JavaScript", "React", "Django", "Linux", "CI/CD"]}
             categories={categories}

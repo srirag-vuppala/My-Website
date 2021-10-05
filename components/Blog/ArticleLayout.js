@@ -34,7 +34,7 @@ const ArticleLayout = ({ article }) => {
         <Divider />
         <Box>
           {/* <Box mx="0.2rem" maxWidth="100%"> */}
-          <Box mx="0.2rem"l>
+          <Box mx="0.2rem">
             <ReactMarkdown
               renderers={MarkdownRenderers}
               source={article.content}

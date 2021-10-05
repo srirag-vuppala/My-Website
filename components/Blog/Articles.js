@@ -15,7 +15,7 @@ const Articles = ({ articles, categories }) => {
         <Flex justify="space-between" flexWrap="wrap">
           {articles.map((article, i) => {
             return (
-              <Box key={i} my={3} mx={6}>
+              <Box key={i} my={3} mx={4}>
                 <ArticleCard article={article} categories={categories} key={i} />
                 <Spacer />
               </Box>
